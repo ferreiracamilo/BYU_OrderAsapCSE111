@@ -1,8 +1,6 @@
 from enum import Enum
 
 class Product:
-    #DCATEGORIES = ["Beverages", "Bread/Bakery", "Canned/Jarred Goods", "Dairy", "Dry/Baking Goods", "Frozen Foods",
-    #              "Meat", "Produce", "Cleaners", "Paper Goods", "Personal Care", "Other"]
     
     class Categories(str, Enum):
         BEVERAGES = "Beverages"
