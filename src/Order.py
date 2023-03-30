@@ -3,15 +3,18 @@ from datetime import datetime
 class Order:
     CATEGORIES = ["Waiting", "In Process", "Delivered"]
 
-    class_counter = 0
+    #INDEXES start at ZERO but this will work as order id as well, therefore enforcing start at 1
+    class_counter = 1
 
-    def __init__(self, customer, discount, tax_rate):
-        self._id = Order.class_counter,
-        self._date = datetime.now(),
-        self._requests = [],
-        self._status = "Waiting",
-        self._customer = customer,
-        self._discount = discount,
+    def __init__(self, customer, discount=0, tax_rate=12):
+        #Not every order will be eligible or receive a discount, therefore is enforced ZERO
+        #Tax Rate will assign a default tax rate in case there's nothing defined
+        self._id = Order.class_counter
+        self._date = datetime.now()
+        self._requests = []
+        self._status = "Waiting"
+        self._customer = customer
+        self._discount = discount
         self._tax_rate = tax_rate
         Order.class_counter += 1
 
