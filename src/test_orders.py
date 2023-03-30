@@ -1,32 +1,29 @@
 import pytest
 from Order import *
 from Customer import *
+from Product import *
+from Request import *
 from faker import Faker
 import random
 
 sample = Faker()
 
-print(f'name: {sample.idnumber()}')
-print(f'address: {sample.address()}')
-
-def test_auto_id():
+def test_auto_increment_id():
     class_counter = Order.class_counter
-    customer_one = Customer(random.randint(0,100), sample.first_name(), sample.last_name(), sample.date(), sample.address(), sample.address())
-    # customer, discount, tax_rate):
-     
-
-    first_product = Order(1, "water bottle")
-    second_product = Order(2, "water bottle")
-    first_id = first_product.get_id()
-    second_id = second_product.get_id()
+    customer_one = Customer(random.randint(1,100), sample.first_name(), sample.last_name(), sample.date(), sample.address(), sample.address(), sample.phone_number(), sample.email())
+    first_order = Order(customer_one)
+    second_order = Order(customer_one)
+    first_id = first_order.get_id()
+    second_id = second_order.get_id()
     assert first_id is class_counter
     assert second_id is class_counter + 1
 
 
-def test_get_id():
-    check_id_req = Order(1, "water bottle")
+def test_id_valtype():
+    customer_one = Customer(random.randint(1,100), sample.first_name(), sample.last_name(), sample.date(), sample.address(), sample.address(), sample.phone_number(), sample.email())
+    check_id_req = Order(customer_one)
     number = check_id_req.get_id()
-    assert number >= 0 and isinstance(number, int)
+    assert number >= 1 and isinstance(number, int)
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
