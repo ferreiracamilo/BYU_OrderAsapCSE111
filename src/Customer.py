@@ -1,4 +1,5 @@
 import re
+import Utils
 
 class Customer:
     def __init__(self, id, name, lastname, birthdate, billing_address, shipping_address, phone_number, email):
@@ -129,12 +130,5 @@ class Customer:
         Args:
             name (String): email
         """
-        if self.validate_email(email):
-            self._phone_number = email
-    
-    def validate_email(self, myvalue):
-        #Local function
-        pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
-        if re.match(pat,myvalue):
-            return True
-        return False
+        if Utils.validate_email(email):
+            self._email = email
