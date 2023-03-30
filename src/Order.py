@@ -6,13 +6,13 @@ class Order:
     class_counter = 0
 
     def __init__(self, customer, discount, tax_rate):
-        self.id = Order.class_counter,
-        self.date = datetime.now(),
-        self.requests = [],
-        self.status = "Waiting",
-        self.customer = customer,
-        self.discount = discount,
-        self.tax_rate = tax_rate
+        self._id = Order.class_counter,
+        self._date = datetime.now(),
+        self._requests = [],
+        self._status = "Waiting",
+        self._customer = customer,
+        self._discount = discount,
+        self._tax_rate = tax_rate
         Order.class_counter += 1
 
     def get_id(self):
@@ -21,7 +21,7 @@ class Order:
         Returns:
             Int: id
         """
-        return self.id
+        return self._id
 
     def get_customer(self):
         """Retrieve customer
@@ -29,7 +29,7 @@ class Order:
         Returns:
             Customer: customer
         """
-        return self.customer
+        return self._customer
 
     def get_date(self):
         """Retrieve date
@@ -37,7 +37,7 @@ class Order:
         Returns:
             Date: date
         """
-        return self.date
+        return self._date
 
     def get_discount(self):
         """Retrieve discount
@@ -45,7 +45,7 @@ class Order:
         Returns:
             Int: discount
         """
-        return self.discount
+        return self._discount
 
     def get_requests(self):
         """Retrieve requests
@@ -53,7 +53,7 @@ class Order:
         Returns:
             List{Request}: requests
         """
-        return self.requests
+        return self._requests
 
     def get_tax_rate(self):
         """Retrieve tax_rate
@@ -61,7 +61,7 @@ class Order:
         Returns:
             Float: tax_rate
         """
-        return self.tax_rate
+        return self._tax_rate
 
     def get_status(self):
         """Retrieve status
@@ -69,7 +69,7 @@ class Order:
         Returns:
             String: status
         """
-        return self.status
+        return self._status
 
     def set_status(self, status):
         """Update status
@@ -77,7 +77,7 @@ class Order:
         Args:
             status (String): status
         """
-        self.status = status
+        self._status = status
 
     def set_discount(self, discount):
         """Update discount
@@ -85,7 +85,7 @@ class Order:
         Args:
             discount (Float): discount
         """
-        self.status = discount
+        self._status = discount
 
     def set_tax_rate(self, tax_rate):
         """Update tax_rate
@@ -93,7 +93,7 @@ class Order:
         Args:
             tax_rate (Float): tax_rate
         """
-        self.status = tax_rate
+        self._status = tax_rate
 
     def set_requests(self, requests_list):
         """Update tax_rate
@@ -101,4 +101,4 @@ class Order:
         Args:
             tax_rate (List[requests]): requests
         """
-        self.requests = requests_list
+        self._requests = requests_list

@@ -2,9 +2,9 @@ class Request:
     class_counter = 0
 
     def __init__(self, quantity, product):
-        self.quantity = quantity
-        self.product = product
-        self.id = Request.class_counter
+        self._quantity = quantity
+        self._product = product
+        self._id = Request.class_counter
         Request.class_counter += 1
 
     def get_id(self):
@@ -13,7 +13,7 @@ class Request:
         Returns:
             Int: idx
         """
-        return self.id
+        return self._id
 
     def get_product(self):
         """Retrieve product
@@ -21,7 +21,7 @@ class Request:
         Returns:
             Product: product
         """
-        return self.product
+        return self._product
 
     def get_quantity(self):
         """Retrieve quantity
@@ -29,7 +29,7 @@ class Request:
         Returns:
             Int: quantity
         """
-        return self.quantity
+        return self._quantity
 
     def set_product(self, product):
         """Update product
@@ -37,4 +37,4 @@ class Request:
         Args:
             product (Product): product
         """
-        self.product = product
+        self._product = product
