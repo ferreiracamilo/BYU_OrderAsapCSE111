@@ -3,14 +3,17 @@ import Utils
 
 class Customer:
     def __init__(self, id, name, lastname, birthdate, billing_address, shipping_address, phone_number, email):
-        self._id = id
-        self._name = name
-        self._lastname = lastname
-        self._birthdate = birthdate
-        self._billing_address = billing_address
-        self._shipping_address = shipping_address
-        self._phone_number = phone_number
-        self._email = email
+        if Utils.validate_email(email):
+            self._id = id
+            self._name = name
+            self._lastname = lastname
+            self._birthdate = birthdate
+            self._billing_address = billing_address
+            self._shipping_address = shipping_address
+            self._phone_number = phone_number
+            self._email = email
+        else:
+            raise Exception("Email provided is not valid")
 
     def get_id(self):
         """Retrieve a id from a specific customer
