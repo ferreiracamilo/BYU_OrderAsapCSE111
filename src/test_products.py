@@ -7,10 +7,10 @@ def test_toString():
     prod_code = "SKU-1234"
     prod_name = "Sprinkle Water"
     prod_price = 13.93
-    prod_category = Product.Categories.BAKERY
     newProduct = Product("SKU-1234","Sprinkle Water", 13.93, Product.Categories.BAKERY)
-    msg = f"{newProduct}"
-    assert "a" in "dasdada"
+    productOutput = f"{newProduct}"
+    expectedOutput = f"Product code: {prod_code}, Name: {prod_name}, Price: {prod_price}, Category: Bread/Bakery"
+    assert productOutput == expectedOutput
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
