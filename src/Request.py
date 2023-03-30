@@ -1,5 +1,5 @@
 class Request:
-    class_counter = 0
+    class_counter = 1
 
     def __init__(self, quantity, product):
         self._quantity = quantity
