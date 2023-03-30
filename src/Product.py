@@ -20,10 +20,10 @@ class Product:
             return str(self.value)
     
     def __init__(self, code, name, price, category):
-        self.code = code
-        self.name = name
-        self.price = price
-        self.category = category
+        self._code = code
+        self._name = name
+        self._price = price
+        self._category = category
 
     def get_code(self):
         """Retrieve code
@@ -31,7 +31,7 @@ class Product:
         Returns:
             String: code
         """
-        return self.code
+        return self._code
 
     def get_name(self):
         """Retrieve name
@@ -39,7 +39,7 @@ class Product:
         Returns:
             String: name
         """
-        return self.name
+        return self._name
 
     def get_price(self):
         """Retrieve price
@@ -47,7 +47,7 @@ class Product:
         Returns:
             Float: price
         """
-        return self.price
+        return self._price
 
     def get_category(self):
         """Retrieve category
@@ -55,7 +55,7 @@ class Product:
         Returns:
             String: category
         """
-        return self.category
+        return self._category
 
     def set_name(self, name):
         """Update name
@@ -63,7 +63,7 @@ class Product:
         Args:
             name (String): name
         """
-        self.name = name
+        self._name = name
 
     def set_price(self, price):
         """Update price
@@ -71,7 +71,7 @@ class Product:
         Args:
             price (String): price
         """
-        self.price = price
+        self._price = price
 
     def set_category(self, category):
         """Update category
@@ -79,8 +79,8 @@ class Product:
         Args:
             category (String): category
         """
-        self.category = category
+        self._category = category
 
     def __str__(self) -> str:
         # return f"{self.name}({self.age})"
-        return f"Product code: {self.code}, Name: {self.name}, Price: {self.price}, Category: {self.category}"
+        return f"Product code: {self._code}, Name: {self._name}, Price: {self._price}, Category: {self._category}"
