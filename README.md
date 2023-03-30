@@ -1,9 +1,22 @@
 # OrderAsapCSE111
- Final project for CSE 111 (Programming with Functions) from Applied Technology BS.
- Project consist on a simple simulation of a shopping cart to "print" invoices with a basic graphic interface. Along this CLASSES and UNIT TEST will be implemented.
 
- It will be required to install
-    -Python 3.10.X
-    -Pytest
-    -Faker
-    -Dumper
+## Purpose
+Fullfil and complete final project required for CSE 111 course (Programming with Functions) from Applied Technology BS.
+
+## Application Objective
+Project consist on a simple simulation of a shopping cart to "print" invoices with a basic graphic interface. Along this CLASSES and UNIT TEST will be implemented.
+
+## Knowledge applied
+- Classes
+- DAO
+- Unit Test
+- Graphic User Interphace
+
+## Installation
+Bear in mind is required to install some dependencies to execute project. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+
+```bash
+pip install pytest
+pip install Faker
+pip install Dumper
+```
