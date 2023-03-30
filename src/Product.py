@@ -1,7 +1,26 @@
-class Product:
-    CATEGORIES = ["Beverages", "Bread/Bakery", "Canned/Jarred Goods", "Dairy", "Dry/Baking Goods", "Frozen Foods",
-                  "Meat", "Produce", "Cleaners", "Paper Goods", "Personal Care", "Other"]
+from enum import Enum
 
+class Product:
+    #DCATEGORIES = ["Beverages", "Bread/Bakery", "Canned/Jarred Goods", "Dairy", "Dry/Baking Goods", "Frozen Foods",
+    #              "Meat", "Produce", "Cleaners", "Paper Goods", "Personal Care", "Other"]
+    
+    class Categories(str, Enum):
+        BEVERAGES = "Beverages"
+        BAKERY = "Bread/Bakery"
+        CANNED = "Canned/Jarred Goods"
+        DAIRY = "Dairy"
+        DRY_GOOD = "Dry/Baking Goods"
+        FROZEN_FOOD = "FrozenFoods"
+        MEAT = "Meat"
+        PRODUCE = "Produce"
+        CLEANER = "Cleaners"
+        PAPER_GOOD = "Paper Goods"
+        PERSONAL_CARE = "Personal Care"
+        OTHER = "Other"
+
+        def __str__(self):
+            return str(self.value)
+    
     def __init__(self, code, name, price, category):
         self.code = code
         self.name = name
