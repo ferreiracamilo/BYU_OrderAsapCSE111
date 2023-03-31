@@ -21,7 +21,8 @@ pip install Faker
 pip install Dumper
 ```
 
-Author
-Designed and developed by Camilo Fereira 👤
+## Author
 
-LinkedIn Email
+Designed and developed by Camilo Ferreira &#x1F464;
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/camiloferreirafosalba/?locale=en_US)](https://www.linkedin.com/in/camiloferreirafosalba/?locale=en_US)
