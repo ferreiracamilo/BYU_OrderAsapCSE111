@@ -23,6 +23,6 @@ pip install Dumper
 
 ## Author
 
-Designed and developed by Camilo Ferreira &#x1F464;
+Designed and developed by Camilo Ferreira %F0%9F%A6%B2;
 
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/camiloferreirafosalba/?locale=en_US)](https://www.linkedin.com/in/camiloferreirafosalba/?locale=en_US)
