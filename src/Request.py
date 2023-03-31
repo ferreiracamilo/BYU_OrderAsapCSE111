@@ -7,6 +7,7 @@ class Request:
         self._id = Request.class_counter
         Request.class_counter += 1
 
+
     def get_id(self):
         """Retrieve idx
 
@@ -14,6 +15,7 @@ class Request:
             Int: idx
         """
         return self._id
+
 
     def get_product(self):
         """Retrieve product
@@ -23,6 +25,7 @@ class Request:
         """
         return self._product
 
+
     def get_quantity(self):
         """Retrieve quantity
 
@@ -30,6 +33,7 @@ class Request:
             Int: quantity
         """
         return self._quantity
+
 
     def set_product(self, product):
         """Update product
