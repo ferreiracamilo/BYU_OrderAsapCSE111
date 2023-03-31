@@ -20,3 +20,8 @@ pip install pytest
 pip install Faker
 pip install Dumper
 ```
+
+Author
+Designed and developed by Camilo Fereira 👤
+
+LinkedIn Email
