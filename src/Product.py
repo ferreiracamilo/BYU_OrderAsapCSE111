@@ -2,6 +2,7 @@ from enum import Enum
 
 class Product:
     
+
     class Categories(str, Enum):
         BEVERAGES = "Beverages"
         BAKERY = "Bread/Bakery"
@@ -19,11 +20,13 @@ class Product:
         def __str__(self):
             return str(self.value)
     
+
     def __init__(self, code, name, price, category):
         self._code = code
         self._name = name
         self._price = price
         self._category = category
+
 
     def get_code(self):
         """Retrieve code
@@ -33,6 +36,7 @@ class Product:
         """
         return self._code
 
+
     def get_name(self):
         """Retrieve name
 
@@ -40,6 +44,7 @@ class Product:
             String: name
         """
         return self._name
+
 
     def get_price(self):
         """Retrieve price
@@ -49,6 +54,7 @@ class Product:
         """
         return self._price
 
+
     def get_category(self):
         """Retrieve category
 
@@ -56,6 +62,7 @@ class Product:
             String: category
         """
         return self._category
+
 
     def set_name(self, name):
         """Update name
@@ -65,6 +72,7 @@ class Product:
         """
         self._name = name
 
+
     def set_price(self, price):
         """Update price
 
@@ -73,6 +81,7 @@ class Product:
         """
         self._price = price
 
+
     def set_category(self, category):
         """Update category
 
@@ -80,6 +89,7 @@ class Product:
             category (String): category
         """
         self._category = category
+
 
     def __str__(self) -> str:
         # return f"{self.name}({self.age})"

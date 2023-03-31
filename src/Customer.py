@@ -15,6 +15,7 @@ class Customer:
         else:
             raise Exception("Email provided is not valid")
 
+
     def get_id(self):
         """Retrieve a id from a specific customer
 
@@ -22,6 +23,7 @@ class Customer:
             String: Customer id
         """
         return self._id
+
 
     def get_name(self):
         """Retrieve name
@@ -31,6 +33,7 @@ class Customer:
         """
         return self._name
 
+
     def get_lastname(self):
         """Retrieve lastname
 
@@ -38,6 +41,7 @@ class Customer:
             String: lastname
         """
         return self._lastname
+
 
     def get_birthdate(self):
         """Retrieve birthdate
@@ -47,6 +51,7 @@ class Customer:
         """
         return self._birthdate
 
+
     def get_shipping_address(self):
         """Retrieve shipping address
 
@@ -55,6 +60,7 @@ class Customer:
         """
         return self._shipping_address
 
+
     def get_billing_address(self):
         """Retrieve billing address
 
@@ -62,7 +68,8 @@ class Customer:
             String: billing address
         """
         return self._billing_address
-    
+
+
     def get_phone_number(self):
         """Retrieve phone number
 
@@ -70,7 +77,8 @@ class Customer:
             String: phone number
         """
         return self._phone_number
-    
+
+
     def get_email (self):
         """Retrieve email
 
@@ -78,6 +86,7 @@ class Customer:
             String: email
         """
         return self._email
+
 
     def set_name(self, name):
         """Update name
@@ -87,6 +96,7 @@ class Customer:
         """
         self._name = name
 
+
     def set_lastname(self, lastname):
         """Update lastname
 
@@ -94,6 +104,7 @@ class Customer:
             name (String): lastname
         """
         self._lastname = lastname
+
 
     def set_birthdate(self, birthdate):
         """Update birthdate
@@ -103,6 +114,7 @@ class Customer:
         """
         self._birthdate = birthdate
 
+
     def set_billing_address(self, billing_address):
         """Update billing_address
 
@@ -110,6 +122,7 @@ class Customer:
             name (String): billing_address
         """
         self._billing_address = billing_address
+
 
     def set_shipping_address(self, shipping_address):
         """Update shipping_address
@@ -119,6 +132,7 @@ class Customer:
         """
         self._shipping_address = shipping_address
 
+
     def set_phone_number(self, phone_number):
         """Update phone_number
 
@@ -126,6 +140,7 @@ class Customer:
             name (String): phone_number
         """
         self._phone_number = phone_number
+
 
     def set_email(self, email):
         """Update email
