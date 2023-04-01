@@ -1,6 +1,7 @@
 import os
 from InvoiceGenerator.api import Invoice, Item, Client, Provider, Creator
 from InvoiceGenerator.pdf import SimpleInvoice
+import Utils
 
 os.environ["INVOICE_LANG"] = "en"
 one_address = "1235 Eduardo Acevedo, Miami, Florida, 35034"
@@ -18,5 +19,6 @@ for i in range(number_of_items):
 invoice.currency = "$"
 invoice.number = "10393069"
 document = SimpleInvoice(invoice)
-fileNamex = 'invoice.pdf'
+fileNamex = 'invoic2e.pdf'
 document.gen(fileNamex, generate_qr_code=True)
+Utils.walk(os.path.realpath(os.curdir))

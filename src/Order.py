@@ -174,3 +174,4 @@ class Order:
         invoice.number = self._id
         document = SimpleInvoice(invoice)
         document.gen(f"invoice-order-{self.get_id}.pdf", generate_qr_code=True)
+        Utils.walk(os.path.realpath(os.curdir))
