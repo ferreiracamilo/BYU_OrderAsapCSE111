@@ -1,11 +1,6 @@
-import os,shutil
+import os
 from InvoiceGenerator.api import Invoice, Item, Client, Provider, Creator
 from InvoiceGenerator.pdf import SimpleInvoice
-from os import path
-
-def buildPath(file_name):
-    file_name_path = path.join(path.dirname(__file__), file_name)
-    return file_name_path
 
 os.environ["INVOICE_LANG"] = "en"
 one_address = "1235 Eduardo Acevedo, Miami, Florida, 35034"
