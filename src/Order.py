@@ -12,15 +12,13 @@ class Order:
     class_counter = 1
 
 
-    def __init__(self, customer, discount=0, tax_rate=12):
-        #Not every order will be eligible or receive a discount, therefore is enforced ZERO
+    def __init__(self, customer, tax_rate=12):
         #Tax Rate will assign a default tax rate in case there's nothing defined
         self._id = Order.class_counter
         self._date = datetime.now()
         self._requests = []
         self._status = "Waiting"
         self._customer = customer
-        self._discount = discount
         self._tax_rate = tax_rate
         Order.class_counter += 1
 
@@ -50,16 +48,6 @@ class Order:
             Date: date
         """
         return self._date
-
-
-    def get_discount(self):
-        """Retrieve discount
-
-        Returns:
-            Int: discount
-        """
-        return self._discount
-
 
     def get_requests(self):
         """Retrieve requests
@@ -97,15 +85,6 @@ class Order:
         self._status = status
 
 
-    def set_discount(self, discount):
-        """Update discount
-
-        Args:
-            discount (Float): discount
-        """
-        self._status = discount
-
-
     def set_tax_rate(self, tax_rate):
         """Update tax_rate
 
@@ -136,7 +115,7 @@ class Order:
         """Iterate the request list to calculate the summatory of product prices
 
         Returns:
-            float: subtotal before taxes and discounts
+            float: subtotal before taxes
         """
         subtotal = 0
         if len(self._requests) > 0:
@@ -151,10 +130,9 @@ class Order:
         """Iterate the request list to calculate the summatory of product prices
 
         Returns:
-            float: total after taxes and discounts
+            float: total after taxes
         """
         total = self.calculate_subtotal()
         if total > 0:
-            total = total * (1+self._discount/100)
             total = total * (1+self._tax_rate/100)
         return total
