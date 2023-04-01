@@ -17,7 +17,7 @@ invoice = Invoice(client, provider, creator)
 number_of_items = int(input("Enter the number of Items: "))
 for i in range(number_of_items):
     units = int(input(f"Enter the number of units for item no.{i+1}: "))
-    price_per_unit = int(input(f"Enter the price per unit of item no.{i+1}: "))
+    price_per_unit = float(input(f"Enter the price per unit of item no.{i+1}: "))
     description = input("Enter the name of item/product: ")
     invoice.add_item(Item(count=units, price=price_per_unit, description=description))
 invoice.currency = "$"
@@ -25,7 +25,3 @@ invoice.number = "10393069"
 document = SimpleInvoice(invoice)
 fileNamex = 'invoice.pdf'
 document.gen(fileNamex, generate_qr_code=True)
-oldPath = buildPath(fileNamex)
-newPath = oldPath.replace(fileNamex,f"Invoices\\{fileNamex}")
-shutil.move(oldPath, newPath)
-das = "das"
