@@ -15,7 +15,7 @@ class Order:
 
 
     def __init__(self, customer, tax_rate=12):
-        #Tax Rate will assign a default tax rate in case there's nothing defined
+        #Tax Rate will assign a default tax rate in case there"s nothing defined
         self._id = Order.class_counter
         self._date = datetime.now()
         self._requests = []
@@ -156,22 +156,40 @@ class Order:
         # my_order.add_request(request_two)
 
         os.environ["INVOICE_LANG"] = "en"
-        client = Client('Finxter')
-        # one_address.replace(", ", ",").split(",")
-        provider = Provider(summary='Door2Groceries Inc.', address='234 Jimlik St', city='Opa Locka, Florida', bank_account='123-4555-12345', bank_code='221', phone='202-555-0120', email='info@door2groceries.com')
-        creator = Creator('Shubham Sayon')
+        
+        #### Collect customer information and set as client for invoice ###
+        cx_fullname = self._customer.get_fullname()
+        cx_address = self._customer.get_address_formatted()[0]
+        cx_city = f"{self._customer.get_address_formatted()[1]}, {self._customer.get_address_formatted()[2]}"
+        cx_email = self._customer.get_email()
+        cx_phone = self._customer.get_phone_number()
+        client = Client(summary=cx_fullname, address=cx_address, city=cx_city, email=cx_email, phone=cx_phone)
+
+        #### Collect provider information and set as provider for invoice
+        prov_name = "Door2Groceries Inc."
+        prov_address = "234 Jimlik St"
+        prov_city = "Opa Locka, Florida"
+        prov_bank_acc = "123-4555-12345"
+        prov_bank_cod = "221"
+        prov_phone = "202-555-0120"
+        prov_email = "info@door2groceries.com"
+        prov_logo = f"{os.getcwd()}\\Resources\logo-color.png" #Combine current working directoy and subdir along file name
+        provider = Provider(summary=prov_name, address=prov_address, city=prov_city, bank_account=prov_bank_acc, bank_code=prov_bank_cod, phone=prov_phone, email=prov_email, logo_filename=prov_logo)
+        
+        creator = Creator("Accountant Area")
         invoice = Invoice(client, provider, creator)
         invoice.use_tax = True
-        
 
         for i in self._requests:
-
             product = i.get_product()
             quantity = i.get_quantity()
             invoice.add_item(Item(unit=quantity, price=product.get_price(), description=product.get_name(), tax=self._tax_rate))
 
         invoice.currency = "$"
         invoice.number = self._id
+        invoice.title = "Thanks for your purchase"
+        invoice.date = self.get_date()
+
         document = SimpleInvoice(invoice)
         document.gen(f"invoice-order-{self.get_id}.pdf", generate_qr_code=True)
         Utils.walk(os.path.realpath(os.curdir))
