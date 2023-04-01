@@ -42,6 +42,23 @@ class Customer:
         """
         return self._lastname
 
+    def get_fullname(self):
+        """Concatenate first and last name
+
+        Returns:
+            String: full name
+        """
+        return f"{self._name} {self._lastname}"
+    
+    def get_address_formatted(self):
+        # one_address.replace(", ", ",").split(",")
+        """Retrieve array of strings formatted for PDF invoice
+
+        Returns:
+            []String: E.g. {"123 Main 4th St", "Miami", "Florida", "33054"}
+        """
+        return self._billing_address.replace(", ", ",").split(",")
+
 
     def get_birthdate(self):
         """Retrieve birthdate
