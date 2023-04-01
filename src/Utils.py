@@ -1,4 +1,4 @@
-import re
+import re, os, shutil
 
 def validate_email(myvalue):
         #Local function
