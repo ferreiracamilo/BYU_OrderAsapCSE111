@@ -136,3 +136,38 @@ class Order:
         if total > 0:
             total = total * (1+self._tax_rate/100)
         return total
+    
+    def print_invoice(self):
+        # customer_one = Customer(random.randint(1,100), sample.first_name(), sample.last_name(), sample.date(), sample.address(), sample.address(), sample.phone_number(), sample.email())
+
+        # my_order = Order(customer_one)
+
+        # product_one = Product("SKU344", "Sprinkle Water 1lt", 1, Product.Categories.BEVERAGES) 
+
+        # product_two = Product("SKU122", "Paper Towels 200U", 4, Product.Categories.PAPER_GOOD)
+
+        # request_one = Request(1, product_one)
+
+        # request_two = Request(1, product_two)
+        # my_order.add_request(request_one)
+        # my_order.add_request(request_two)
+
+        os.environ["INVOICE_LANG"] = "en"
+        client = Client('Finxter')
+        # one_address.replace(", ", ",").split(",")
+        provider = Provider(summary='Door2Groceries Inc.', address='234 Jimlik St', city='Opa Locka, Florida', bank_account='123-4555-12345', bank_code='221', phone='202-555-0120', email='info@door2groceries.com')
+        creator = Creator('Shubham Sayon')
+        invoice = Invoice(client, provider, creator)
+        invoice.use_tax = True
+        
+
+        for i in self._requests:
+
+            product = i.get_product()
+            quantity = i.get_quantity()
+            invoice.add_item(Item(unit=quantity, price=product.get_price(), description=product.get_name(), tax=self._tax_rate))
+
+        invoice.currency = "$"
+        invoice.number = self._id
+        document = SimpleInvoice(invoice)
+        document.gen(f"invoice-order-{self.get_id}.pdf", generate_qr_code=True)
