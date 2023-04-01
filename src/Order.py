@@ -2,7 +2,9 @@ from datetime import datetime
 from Request import *
 from Product import *
 from Customer import *
-
+import os
+from InvoiceGenerator.api import Invoice, Item, Client, Provider, Creator
+from InvoiceGenerator.pdf import SimpleInvoice
 
 class Order:
     CATEGORIES = ["Waiting", "In Process", "Delivered"]
@@ -136,7 +138,8 @@ class Order:
         if total > 0:
             total = total * (1+self._tax_rate/100)
         return total
-    
+
+
     def print_invoice(self):
         # customer_one = Customer(random.randint(1,100), sample.first_name(), sample.last_name(), sample.date(), sample.address(), sample.address(), sample.phone_number(), sample.email())
 
