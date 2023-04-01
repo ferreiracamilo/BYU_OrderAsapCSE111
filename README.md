@@ -19,6 +19,7 @@ Bear in mind is required to install some dependencies to execute project. Use th
 pip install pytest
 pip install Faker
 pip install Dumper
+pip install InvoiceGenerator
 ```
 
 ## Author
