@@ -28,6 +28,7 @@ class App:
 
 
         def validate_non_empty():
+            result = True
             len_name = len(txt_cx_name.get())
             len_lname = len(txt_cx_lastname.get())
             len_billing = len(txt_cx_billing_address.get())
@@ -41,29 +42,66 @@ class App:
             len_toilet = len(txt_prods_toilet.get())
             len_garbage = len(txt_prods_garbage.get())
             if len_name < 1 or len_lname < 1 or len_billing < 1 or len_email < 1 or len_bdate < 1 or len_shipping < 1 or len_water < 1 or len_flour < 1 or len_sugar < 1 or len_towel < 1 or len_toilet < 1 or len_garbage < 1:
+                result = False
                 show_message("All fields are required, review them to assure there's no empty field")
+            return result
         
         def validate_addresses():
+            result = True
             txt_cx_billing_address
             txt_cx_shipping_address
             billing_comma = len(re.findall(",", txt_cx_billing_address.get()))
             shipping_comma = len(re.findall(",", txt_cx_shipping_address.get()))
             if billing_comma < 3 or shipping_comma < 3:
+                result = False
                 show_message("Adress must follow template > 'St Address,City,State,ZipCode'")
+            return result
 
         def validate_birthdate():
+            result = True
             isBdate = Utils.is_date(txt_cx_birthdate.get(), fuzzy=False)
             if isBdate == False:
+                result = False
                 show_message("Birthdate must follow template 'MM/DD/YYYY'")
+            return result
 
         def validate_email():
-            
+            result = True
+            isEmail = Utils.is_email(txt_cx_email.get())
+            if isEmail == False:
+                result = False
+                show_message("Enter a valid email address")
+            return result
+        
+        def validate_product_request():
+            result = True
+            qty1 = int(txt_prods_water.get())
+            qty2 = int(txt_prods_flour.get())
+            qty3 = int(txt_prods_sugar.get())
+            qty4 = int(txt_prods_towel.get())
+            qty5 = int(txt_prods_toilet.get())
+            qty6 = int(txt_prods_garbage.get())
+            total_qty = qty1 + qty2 + qty3 + qty4 + qty5 + qty6
+            if total_qty <= 0:
+                result = False
+                show_message("At least one product must have 1 unit picked")
+            return result
 
         def btn_generate_invoice_command():
-            validate_non_empty()
-            validate_addresses()
-            validate_birthdate()
-            print(txt_prods_flour.get())
+            validation = True
+            if validate_non_empty() == False:
+                validation = False
+            if validate_addresses() == False:
+                validation = False
+            if validate_birthdate() == False:
+                validation = False
+            if validate_email() == False:
+                validation = False
+            if validate_product_request() == False:
+                validation = False
+
+            if validation == True:
+                print(txt_prods_flour.get())
 
         #setting title
         root.title("Invoice Generator")
