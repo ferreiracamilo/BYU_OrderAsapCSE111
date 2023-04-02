@@ -25,15 +25,6 @@ def main():
     my_order2.add_request(request_two)
     my_order2.print_invoice()
 
-    my_order3 = Order(customer_one)
-    my_order3.add_request(request_one)
-    my_order3.add_request(request_two)
-    my_order3.print_invoice()
-
-    my_order4 = Order(customer_one)
-    my_order4.add_request(request_one)
-    my_order4.add_request(request_two)
-    my_order4.print_invoice()
-    Utils.walk(os.path.realpath(os.curdir))
+    Utils.move(os.path.realpath(os.curdir))
 
 main()
