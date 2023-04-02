@@ -15,4 +15,5 @@ def walk(top):
             f1 = os.path.join(root, name)
             if f1.endswith('.pdf') and directory:
                 shutil.move(f1,top+"\\Invoices")
+                #shutil.rmtree(f1,top+"\\Invoices")
     #walk(os.path.realpath(os.curdir))
