@@ -96,13 +96,13 @@ class App:
             validation = True
             if validate_non_empty() == False:
                 validation = False
-            if validate_addresses() == False:
+            elif validate_addresses() == False:
                 validation = False
-            if validate_birthdate() == False:
+            elif validate_birthdate() == False:
                 validation = False
-            if validate_email() == False:
+            elif validate_email() == False:
                 validation = False
-            if validate_product_request() == False:
+            elif validate_product_request() == False:
                 validation = False
 
             if validation == True:
