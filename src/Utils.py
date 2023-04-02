@@ -1,5 +1,16 @@
 import re, os, shutil
 from dateutil.parser import parse
+import datetime
+
+def string_to_date(date_str):
+    """Given a date MM/DD/YYYY as String covert into Date
+
+    Args:
+        DateTime: String convert into Data type
+    """
+    format_str = '%m/%d/%Y' # The format
+    datetime_obj = datetime.datetime.strptime(date_str, format_str)
+    return datetime_obj
 
 def is_email(myvalue):
         pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
