@@ -4,6 +4,11 @@ import tkinter.font as tkFont
 from tkinter import messagebox
 import re
 import Utils
+from Order import *
+from Customer import *
+from Product import *
+from Request import *
+import random
 
 class App:
     def __init__(self, root):
@@ -101,7 +106,50 @@ class App:
                 validation = False
 
             if validation == True:
-                print(txt_prods_flour.get())
+                prod_water = Product("SKU340", "Sprinkle Water 1lt", 3.99, Product.Categories.BEVERAGES)
+                prod_flour = Product("SKU341", "Flour 1kg", 1.40, Product.Categories.DRY_GOOD)
+                prod_sugar = Product("SKU342", "Sugar 1kg", 0.40, Product.Categories.DRY_GOOD)
+                prod_towel = Product("SKU343", "Paper Towel 500pcs", 2.20, Product.Categories.PAPER_GOOD)
+                prod_toilet = Product("SKU344", "Toilet Paper 300pcs", 5.80, Product.Categories.PAPER_GOOD)
+                prod_garbage = Product("SKU345", "Garbage Can 1lt", 3.20, Product.Categories.OTHER)
+                customer_gui = Customer(random.randint(1,100),txt_cx_name.get(),txt_cx_lastname.get(),txt_cx_birthdate,txt_cx_billing_address.get(),txt_cx_shipping_address.get(),txt_cx_phone.get(),txt_cx_email.get())
+                my_order = Order(customer_gui)
+                
+                waterQty = int(txt_prods_water.get())
+                flourQty = int(txt_prods_flour.get())
+                sugarQty = int(txt_prods_sugar.get())
+                towerlQty = int(txt_prods_towel.get())
+                toiletQty = int(txt_prods_toilet.get())
+                gargbateQty = int(txt_prods_garbage.get())
+
+                if waterQty > 0:
+                    request_water = Request(waterQty, prod_water)
+                    my_order.add_request(request_water)
+                
+                if flourQty > 0:
+                    request_water = Request(flourQty, prod_flour)
+                    my_order.add_request(request_water)
+
+                if sugarQty > 0:
+                    request_water = Request(sugarQty, prod_sugar)
+                    my_order.add_request(request_water)
+
+                if towerlQty > 0:
+                    request_water = Request(towerlQty, prod_towel)
+                    my_order.add_request(request_water)
+
+                if toiletQty > 0:
+                    request_water = Request(toiletQty, prod_toilet)
+                    my_order.add_request(request_water)
+
+                if gargbateQty > 0:
+                    request_water = Request(gargbateQty, prod_garbage)
+                    my_order.add_request(request_water)
+
+                lbl_accumulated_subtotal["text"] = f"Subtotal: {my_order.calculate_subtotal():.2f} USD"
+                lbl_accumulated_total["text"] = f"Total: {my_order.calculate_total():.2f} USD"
+                my_order.print_invoice()
+                Utils.move(os.path.realpath(os.curdir))
 
         #setting title
         root.title("Invoice Generator")
@@ -130,7 +178,6 @@ class App:
         txt_cx_name["justify"] = "center"
         txt_cx_name["text"] = "name input"
         txt_cx_name.place(x=129,y=40,width=186,height=30)
-        txt_cx_name["show"] = "name input"
 
         lbl_cx_lastname=tk.Label(root)
         ft = tkFont.Font(family='Times',size=10)
@@ -379,7 +426,7 @@ class App:
         lbl_accumulated_total["font"] = ft
         lbl_accumulated_total["fg"] = "#333333"
         lbl_accumulated_total["justify"] = "center"
-        lbl_accumulated_total["text"] = "Total: 308 USD"
+        lbl_accumulated_total["text"] = "Total: - USD"
         lbl_accumulated_total.place(x=310,y=390,width=166,height=31)
 
         lbl_accumulated_subtotal=tk.Label(root)
@@ -387,7 +434,7 @@ class App:
         lbl_accumulated_subtotal["font"] = ft
         lbl_accumulated_subtotal["fg"] = "#333333"
         lbl_accumulated_subtotal["justify"] = "center"
-        lbl_accumulated_subtotal["text"] = "Subtotal: 290 USD"
+        lbl_accumulated_subtotal["text"] = "Subtotal: - USD"
         lbl_accumulated_subtotal.place(x=110,y=390,width=166,height=31)
 
         btn_generate_invoice=tk.Button(root)
