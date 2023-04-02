@@ -62,8 +62,9 @@ def test_invoice_creation():
     request_two = Request(1.0, product_two)
     my_order.add_request(request_one)
     my_order.add_request(request_two)
-    Utils.walk(os.path.realpath(os.curdir))
-    assert my_order.print_invoice() == True, "Invoice has not been generated"
+    isInvoiceCreated = my_order.print_invoice()
+    Utils.remove(os.path.realpath(os.curdir))
+    assert isInvoiceCreated == True, "Invoice has not been generated"
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.
