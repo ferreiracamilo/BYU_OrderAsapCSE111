@@ -22,8 +22,11 @@ pip install Dumper
 pip install InvoiceGenerator
 ```
 
-## Author
+## Brief Explanation to execute
+Either you execute the file within 'src' subfolder called 'check_by_console.py' or execute the graphic user interphase called 'gui-main.py'.
+After invoices are created will be moved into 'Invoices' subfolder, for the pdf creation unit test will be erased any invoice created by this.
 
+## Author
 Designed and developed by Camilo Ferreira
 
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/camiloferreirafosalba/?locale=en_US)](https://www.linkedin.com/in/camiloferreirafosalba/?locale=en_US)
