@@ -187,8 +187,7 @@ class Order:
         invoice.number = self._id #load order id to invoice id
         invoice.title = "Thanks for your purchase"
         
-
-        #invoice.date = self.get_date() #load creation date to invoice date
+        invoice.date = self._date
 
         document = SimpleInvoice(invoice)
         dateTimeStr = self._date.strftime("%m_%d_%Y-%H_%M_%S")
