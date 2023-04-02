@@ -1,7 +1,6 @@
 import re, os, shutil
 from dateutil.parser import parse
 
-
 def is_email(myvalue):
         pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
         if re.match(pat,myvalue):
@@ -41,7 +40,6 @@ def move(top):
                 file_name_parent_folder = top+"\\"+name
                 if os.path.exists(file_name_parent_folder):
                     shutil.move(f1,top+"\\Invoices")
-
 
 def remove(top):
     """Remove PDF files from project folder, this is for unit test validation
