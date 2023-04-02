@@ -8,9 +8,10 @@ Project consist on a simple simulation of a shopping cart to "print" invoices wi
 
 ## Knowledge applied
 - Classes
-- DAO
+- DAO (pending to be implemented)
 - Unit Test
 - Graphic User Interphace
+- PDF Invoice Generation
 
 ## Installation
 Bear in mind is required to install some dependencies to execute project. Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
