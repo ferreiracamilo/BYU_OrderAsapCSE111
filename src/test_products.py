@@ -10,7 +10,7 @@ def test_toString():
     newProduct = Product("SKU-1234","Sprinkle Water", 13.93, Product.Categories.BAKERY)
     productOutput = f"{newProduct}"
     expectedOutput = f"Product code: {prod_code}, Name: {prod_name}, Price: {prod_price}, Category: Bread/Bakery"
-    assert productOutput == expectedOutput
+    assert productOutput == expectedOutput, "Product string output does not match with expected format"
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.

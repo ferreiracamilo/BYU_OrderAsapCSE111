@@ -7,14 +7,15 @@ def test_auto_increment_id():
     second_request = Request(2, "water bottle")
     first_id = first_request.get_id()
     second_id = second_request.get_id()
-    assert first_id is class_counter
-    assert second_id is class_counter + 1
+    assert first_id is class_counter, "ID does not match with class counter"
+    assert second_id is class_counter + 1, "Next ID does not match value expected"
 
 
 def test_id_valtype():
     check_id_req = Request(1, "water bottle")
     number = check_id_req.get_id()
-    assert number >= 1 and isinstance(number, int)
+    assert isinstance(number, int), "ID is not number type"
+    assert number >= 1, "ID is smaller than 1"
 
 # Call the main function that is part of pytest so that the
 # computer will execute the test functions in this file.

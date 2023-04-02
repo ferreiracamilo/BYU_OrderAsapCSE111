@@ -42,7 +42,7 @@ def test_auto_increment_id():
     first_id = first_order.get_id()
     second_id = second_order.get_id()
     assert first_id is class_counter, "ID does not match with class counter"
-    assert second_id is class_counter + 1, "Next ID does not match with class counter + 1"
+    assert second_id is class_counter + 1, "Next ID does not match value expected"
 
 
 def test_id_valtype():
