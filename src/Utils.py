@@ -1,12 +1,26 @@
 import re, os, shutil
+from dateutil.parser import parse
 
 
-def validate_email(myvalue):
+def is_email(myvalue):
         pat = "^[a-zA-Z0-9-_]+@[a-zA-Z0-9]+\.[a-z]{1,3}$"
         if re.match(pat,myvalue):
             return True
         return False
 
+def is_date(string, fuzzy=False):
+    """
+    Return whether the string can be interpreted as a date.
+
+    :param string: str, string to check for date
+    :param fuzzy: bool, ignore unknown tokens in string if True
+    """
+    try: 
+        parse(string, fuzzy=fuzzy)
+        return True
+
+    except ValueError:
+        return False
 
 def move(top):
     """Move PDF files from project folder to Invoices subfolder
