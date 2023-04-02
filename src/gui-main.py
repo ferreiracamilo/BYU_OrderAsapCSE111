@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import *
 import tkinter.font as tkFont
+from tkinter import messagebox
+import re
+import Utils
 
 class App:
     def __init__(self, root):
@@ -9,13 +12,58 @@ class App:
         def clickShippingEntry(*args):
             txt_cx_shipping_address.delete(0, 'end')
 
+
         # call function when billing entry is clicked
         def clickBillingEntry(*args):
             txt_cx_billing_address.delete(0, 'end')
 
+
         # call function when shipping entry is clicked
         def clickBirthdateEntry(*args):
             txt_cx_birthdate.delete(0, 'end')
+        
+
+        def show_message(error=""):
+            messagebox.showerror(message=error, title="Error warning")
+
+
+        def validate_non_empty():
+            len_name = len(txt_cx_name.get())
+            len_lname = len(txt_cx_lastname.get())
+            len_billing = len(txt_cx_billing_address.get())
+            len_email = len(txt_cx_email.get())
+            len_bdate = len(txt_cx_birthdate.get())
+            len_shipping = len(txt_cx_shipping_address.get())
+            len_water = len(txt_prods_water.get())
+            len_flour = len(txt_prods_flour.get())
+            len_sugar = len(txt_prods_sugar.get())
+            len_towel = len(txt_prods_towel.get())
+            len_toilet = len(txt_prods_toilet.get())
+            len_garbage = len(txt_prods_garbage.get())
+            if len_name < 1 or len_lname < 1 or len_billing < 1 or len_email < 1 or len_bdate < 1 or len_shipping < 1 or len_water < 1 or len_flour < 1 or len_sugar < 1 or len_towel < 1 or len_toilet < 1 or len_garbage < 1:
+                show_message("All fields are required, review them to assure there's no empty field")
+        
+        def validate_addresses():
+            txt_cx_billing_address
+            txt_cx_shipping_address
+            billing_comma = len(re.findall(",", txt_cx_billing_address.get()))
+            shipping_comma = len(re.findall(",", txt_cx_shipping_address.get()))
+            if billing_comma < 3 or shipping_comma < 3:
+                show_message("Adress must follow template > 'St Address,City,State,ZipCode'")
+
+        def validate_birthdate():
+            isBdate = Utils.is_date(txt_cx_birthdate.get(), fuzzy=False)
+            if isBdate == False:
+                show_message("Birthdate must follow template 'MM/DD/YYYY'")
+
+        def validate_email():
+            
+
+        def btn_generate_invoice_command():
+            validate_non_empty()
+            validate_addresses()
+            validate_birthdate()
+            print(txt_prods_flour.get())
 
         #setting title
         root.title("Invoice Generator")
@@ -312,10 +360,7 @@ class App:
         btn_generate_invoice["justify"] = "center"
         btn_generate_invoice["text"] = "Generate Invoice"
         btn_generate_invoice.place(x=250,y=450,width=100,height=25)
-        btn_generate_invoice["command"] = self.btn_generate_invoice_comman
-
-    def btn_generate_invoice_comman(self):
-        print("command")
+        btn_generate_invoice["command"] = btn_generate_invoice_command
 
 if __name__ == "__main__":
     root = tk.Tk()
