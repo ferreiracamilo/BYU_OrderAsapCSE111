@@ -41,15 +41,17 @@ def test_auto_increment_id():
     second_order = Order(customer_one)
     first_id = first_order.get_id()
     second_id = second_order.get_id()
-    assert first_id is class_counter
-    assert second_id is class_counter + 1
+    assert first_id is class_counter, "ID does not match with class counter"
+    assert second_id is class_counter + 1, "Next ID does not match with class counter + 1"
 
 
 def test_id_valtype():
     customer_one = Customer(random.randint(1,100), sample.first_name(), sample.last_name(), sample.date(), sample.address(), sample.address(), sample.phone_number(), sample.email())
     check_id_req = Order(customer_one)
     number = check_id_req.get_id()
-    assert number >= 1 and isinstance(number, int)
+    #assert number >= 1 and isinstance(number, int)
+    assert isinstance(number, int), "ID is not number type"
+    assert number >= 1, "ID is smaller than 1"
 
 
 def test_invoice_creation():
@@ -62,7 +64,7 @@ def test_invoice_creation():
     request_two = Request(1.0, product_two)
     my_order.add_request(request_one)
     my_order.add_request(request_two)
-    isInvoiceCreated = my_order.print_invoice()
+    isInvoiceCreated = my_order.print_invoice() #It is reviewed if method was completed, therefore PDF has been created
     Utils.remove(os.path.realpath(os.curdir))
     assert isInvoiceCreated == True, "Invoice has not been generated"
 
