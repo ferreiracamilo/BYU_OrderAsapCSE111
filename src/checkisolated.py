@@ -20,11 +20,6 @@ def main():
     my_order1.add_request(request_two)
     my_order1.print_invoice()
 
-    my_order2 = Order(customer_one)
-    my_order2.add_request(request_one)
-    my_order2.add_request(request_two)
-    my_order2.print_invoice()
-
     Utils.move(os.path.realpath(os.curdir))
 
 main()
