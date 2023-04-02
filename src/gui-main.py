@@ -4,6 +4,19 @@ import tkinter.font as tkFont
 
 class App:
     def __init__(self, root):
+
+        # call function when shipping entry is clicked
+        def clickShippingEntry(*args):
+            txt_cx_shipping_address.delete(0, 'end')
+
+        # call function when billing entry is clicked
+        def clickBillingEntry(*args):
+            txt_cx_billing_address.delete(0, 'end')
+
+        # call function when shipping entry is clicked
+        def clickBirthdateEntry(*args):
+            txt_cx_birthdate.delete(0, 'end')
+
         #setting title
         root.title("Invoice Generator")
         #setting window size
@@ -65,7 +78,10 @@ class App:
         txt_cx_billing_address["fg"] = "#333333"
         txt_cx_billing_address["justify"] = "center"
         txt_cx_billing_address["text"] = "234 Ron St, Opa Locka, Billing"
+        txt_cx_billing_address.insert(0,"St Address, City, State, Zip Code")
         txt_cx_billing_address.place(x=129,y=120,width=186,height=30)
+        # Use bind method
+        txt_cx_billing_address.bind("<Button-1>", clickBillingEntry)
 
         lbl_cx_phone=tk.Label(root)
         ft = tkFont.Font(family='Times',size=10)
@@ -109,14 +125,16 @@ class App:
         lbl_cx_birthdate["text"] = "Birthdate:"
         lbl_cx_birthdate.place(x=348,y=40,width=60,height=25)
 
-        txt_cx_email=tk.Entry(root)
-        txt_cx_email["borderwidth"] = "1px"
+        txt_cx_birthdate=tk.Entry(root)
+        txt_cx_birthdate["borderwidth"] = "1px"
         ft = tkFont.Font(family='Times',size=10)
-        txt_cx_email["font"] = ft
-        txt_cx_email["fg"] = "#333333"
-        txt_cx_email["justify"] = "center"
-        txt_cx_email["text"] = "MM/DD/YYYY"
-        txt_cx_email.place(x=410,y=40,width=186,height=30)
+        txt_cx_birthdate["font"] = ft
+        txt_cx_birthdate["fg"] = "#333333"
+        txt_cx_birthdate["justify"] = "center"
+        txt_cx_birthdate["text"] = "MM/DD/YYYY"
+        txt_cx_birthdate.insert(0,"MM/DD/YYYY")
+        txt_cx_birthdate.place(x=410,y=40,width=186,height=30)
+        txt_cx_birthdate.bind("<Button-1>", clickBirthdateEntry)
 
         lbl_cx_shipping_address=tk.Label(root)
         ft = tkFont.Font(family='Times',size=10)
@@ -135,6 +153,8 @@ class App:
         txt_cx_shipping_address["text"] = "234 Ron St, Opa Locka, Shipping"
         txt_cx_shipping_address.insert(0,"St Address, City, State, Zip Code")
         txt_cx_shipping_address.place(x=129,y=160,width=186,height=30)
+        # Use bind method
+        txt_cx_shipping_address.bind("<Button-1>", clickShippingEntry)
 
         lbl_cx_section=tk.Label(root)
         ft = tkFont.Font(family='Times',size=10)
@@ -207,6 +227,7 @@ class App:
         txt_prods_water["fg"] = "#333333"
         txt_prods_water["justify"] = "center"
         txt_prods_water["text"] = "water1"
+        txt_prods_water.insert(0,0)
         txt_prods_water.place(x=190,y=260,width=70,height=25)
 
         txt_prods_flour=tk.Entry(root)
@@ -216,6 +237,7 @@ class App:
         txt_prods_flour["fg"] = "#333333"
         txt_prods_flour["justify"] = "center"
         txt_prods_flour["text"] = "flour1"
+        txt_prods_flour.insert(0,0)
         txt_prods_flour.place(x=190,y=290,width=70,height=25)
 
         txt_prods_sugar=tk.Entry(root)
@@ -225,6 +247,7 @@ class App:
         txt_prods_sugar["fg"] = "#333333"
         txt_prods_sugar["justify"] = "center"
         txt_prods_sugar["text"] = "sugar1"
+        txt_prods_sugar.insert(0,0)
         txt_prods_sugar.place(x=190,y=320,width=70,height=25)
 
         txt_prods_towel=tk.Entry(root)
@@ -234,6 +257,7 @@ class App:
         txt_prods_towel["fg"] = "#333333"
         txt_prods_towel["justify"] = "center"
         txt_prods_towel["text"] = "towel1"
+        txt_prods_towel.insert(0,0)
         txt_prods_towel.place(x=520,y=260,width=70,height=25)
 
         txt_prods_toilet=tk.Entry(root)
@@ -243,6 +267,7 @@ class App:
         txt_prods_toilet["fg"] = "#333333"
         txt_prods_toilet["justify"] = "center"
         txt_prods_toilet["text"] = "toiler1"
+        txt_prods_toilet.insert(0,0)
         txt_prods_toilet.place(x=520,y=290,width=70,height=25)
 
         txt_prods_garbage=tk.Entry(root)
@@ -252,6 +277,7 @@ class App:
         txt_prods_garbage["fg"] = "#333333"
         txt_prods_garbage["justify"] = "center"
         txt_prods_garbage["text"] = "garb1"
+        txt_prods_garbage.insert(0,0)
         txt_prods_garbage.place(x=520,y=320,width=70,height=25)
 
         lbl_accumulated_section=tk.Label(root)
