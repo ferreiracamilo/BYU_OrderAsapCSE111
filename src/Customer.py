@@ -3,7 +3,7 @@ import Utils
 
 class Customer:
     def __init__(self, id, name, lastname, birthdate, billing_address, shipping_address, phone_number, email):
-        if Utils.validate_email(email):
+        if Utils.is_email(email):
             self._id = id
             self._name = name
             self._lastname = lastname
@@ -165,5 +165,5 @@ class Customer:
         Args:
             name (String): email
         """
-        if Utils.validate_email(email):
+        if Utils.is_email(email):
             self._email = email
